@@ -1,3 +1,6 @@
+
+<img width="1432" height="300" alt="EORMC Logo" src="https://github.com/user-attachments/assets/0ff01861-bb69-47dc-afe2-7da0eab5ba83" />
+
 # EORMC EXCHANGE -The Launchpad to the Crypto Universe
 
 ---
@@ -20,12 +23,36 @@ The overall composition resembles a launching spaceship, rising upward and outwa
 
 EORMC has built an AI-centered intelligent finance ecosystem, embedding sophisticated AI algorithms into every product detail to enhance efficiency while ensuring security and compliance.
 
-| Feature | Description |
-|---|---|
-| 🔄 **AI-Powered Trading System** | Real-time optimization of order execution; Smooth and stable performance even in extreme markets |
-| 🛡️ **Intelligent Asset Protection** | Dynamic risk management with multi-layer security; Comprehensive protection of client funds |
-| 🌐 **Global Compliance Services** | Smart adaptation to multi-jurisdictional regulations; Providing 24/7 multilingual support |
-| ✅ **Transparent Trust Framework** | AI-driven operational transparency; Fairness that is verifiable at every step |
+<table>
+  <tr>
+    <td width="50%" valign="top" style="padding: 20px; border: 1px solid #ddd;">
+      <img src="https://img.icons8.com/color/48/000000/exchange.png" width="40"/><br/>
+      <strong>AI-Powered Trading System</strong><br/><br/>
+      Real-time optimization of order execution<br/><br/>
+      Smooth and stable performance even in extreme markets
+    </td>
+    <td width="50%" valign="top" style="padding: 20px; border: 1px solid #ddd;">
+      <img src="https://img.icons8.com/color/48/000000/shield.png" width="40"/><br/>
+      <strong>Intelligent Asset Protection</strong><br/><br/>
+      Dynamic risk management with multi-layer security<br/><br/>
+      Comprehensive protection of client funds
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" style="padding: 20px; border: 1px solid #ddd;">
+      <img src="https://img.icons8.com/color/48/000000/conference-call.png" width="40"/><br/>
+      <strong>Global Compliance Services</strong><br/><br/>
+      Smart adaptation to multi-jurisdictional regulations<br/><br/>
+      Providing 24/7 multilingual support
+    </td>
+    <td width="50%" valign="top" style="padding: 20px; border: 1px solid #ddd;">
+      <img src="https://img.icons8.com/color/48/000000/checked-2.png" width="40"/><br/>
+      <strong>Transparent Trust Framework</strong><br/><br/>
+      AI-driven operational transparency<br/><br/>
+      Fairness that is verifiable at every step
+    </td>
+  </tr>
+</table>
 
 > - MSB compliance license issued by FinCEN under the U.S. Department of the Treasury
 > - Regulation D qualification granted by the U.S. SEC
