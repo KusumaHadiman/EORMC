@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EORMC — The Launchpad to the Crypto Universe</title>
+  <meta name="description" content="EORMC is a global crypto trading infrastructure provider. Ranked #16 worldwide, serving 22M+ users with AI-driven trading and full regulatory compliance.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 70% 50%, rgba(201,162,39,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 80%, rgba(201,162,39,0.04) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .line {
+      height: 1px;
+      width: 48px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .hero-eyebrow span {
+      font-family: 'Orbitron', monospace;
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .hero-home h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(38px, 6.5vw, 88px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--text-bright);
+      margin-bottom: 12px;
+    }
+    .hero-home h1 .accent { color: var(--gold); }
+    .hero-home .tagline {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(14px, 2vw, 22px);
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    .hero-home .desc {
+      font-size: 18px;
+      color: var(--text-dim);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--black);
+      text-decoration: none;
+      padding: 14px 28px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border-bright);
+      color: var(--gold-light);
+      text-decoration: none;
+      padding: 14px 28px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      background: rgba(201,162,39,0.07);
+      border-color: var(--gold);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Orbitron', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .hero-scroll::before {
+      content: '';
+      height: 1px;
+      width: 40px;
+      background: var(--text-dim);
+      opacity: 0.3;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .why-item {
+      background: var(--dark);
+      padding: 40px 36px;
+    }
+    .why-item:hover { background: var(--dark2); }
+    .why-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 42px;
+      font-weight: 900;
+      color: rgba(201,162,39,0.12);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .why-item h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .why-item p {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+    .feature-strip {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-strip-item {
+      flex: 1;
+      padding: 28px 32px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .feature-strip-item:last-child { border-right: none; }
+    .feature-strip-item .label {
+      font-family: 'Orbitron', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .feature-strip-item .val {
+      font-family: 'Orbitron', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    @media (max-width: 900px) {
+      .hero-home { padding: 100px 24px 60px; }
+      .hero-scroll { left: 24px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .feature-strip { flex-wrap: wrap; }
+      .feature-strip-item { flex: 0 0 50%; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-horizontal.png" alt="EORMC">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="https://eormc.com" target="_blank" class="nav-cta">Trade Now ↗</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="hero-home">
+    <div class="hero-eyebrow">
+      <div class="line"></div>
+      <span>EORMC.id — Official Resource Center</span>
+    </div>
+    <h1>THE <span class="accent">LAUNCHPAD</span><br>TO THE CRYPTO<br>UNIVERSE</h1>
+    <div class="tagline">AI-Driven · Compliant · Global</div>
+    <p class="desc">EORMC is a global crypto trading infrastructure provider serving 22M+ users worldwide. Explore our credentials, security systems, compliance certifications, and institutional framework.</p>
+    <div class="hero-btns">
+      <a href="compliance.html" class="btn-primary">View Credentials ↗</a>
+      <a href="https://eormc.com" target="_blank" class="btn-outline">Go to Exchange ↗</a>
+    </div>
+    <div class="hero-scroll">Scroll to explore</div>
+  </div>
+
+  <!-- Stats Strip -->
+  <div class="feature-strip">
+    <div class="feature-strip-item">
+      <div class="label">Global Rank</div>
+      <div class="val">#16</div>
+    </div>
+    <div class="feature-strip-item">
+      <div class="label">Users Worldwide</div>
+      <div class="val">22M+</div>
+    </div>
+    <div class="feature-strip-item">
+      <div class="label">Daily Volume</div>
+      <div class="val">$10B+</div>
+    </div>
+    <div class="feature-strip-item">
+      <div class="label">Reserve Funds</div>
+      <div class="val">3,000 BTC</div>
+    </div>
+    <div class="feature-strip-item">
+      <div class="label">Institutional Partners</div>
+      <div class="val">100+</div>
+    </div>
+  </div>
+
+  <!-- Why EORMC -->
+  <section>
+    <div class="section-label">Core Pillars</div>
+    <h2 class="section-title">Why Choose EORMC</h2>
+    <p class="section-subtitle">Built on four pillars that define the next generation of crypto exchange infrastructure.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <h3>AI-Powered Trading Engine</h3>
+        <p>Real-time optimization of order execution with adaptive matching. Smooth and stable performance even in extreme market conditions — powered by proprietary AI algorithms from day one.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <h3>Intelligent Asset Protection</h3>
+        <p>Dynamic risk management with multi-layer MPC/HSM security architecture. Behavioral graph algorithms detect anomalies pre-emptively, shifting from reactive to preventive security.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <h3>Global Compliance Framework</h3>
+        <p>MSB licensed by U.S. FinCEN and SEC Regulation D certified. Smart adaptation to multi-jurisdictional regulatory requirements ensures seamless global operations.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <h3>Transparent Trust System</h3>
+        <p>AI-driven operational transparency with verifiable asset reserve reports. Every key decision is auditable — fairness verifiable at every step of the process.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Preview -->
+  <section style="background: var(--dark2);">
+    <div class="section-label">Regulatory Status</div>
+    <h2 class="section-title">Fully Licensed &amp; Regulated</h2>
+    <p class="section-subtitle">EORMC holds official compliance certifications from leading financial regulators across multiple jurisdictions.</p>
+    <div class="badge-row">
+      <div class="badge"><div class="badge-dot"></div>U.S. FinCEN — MSB License (Renewed Oct 2024)</div>
+      <div class="badge"><div class="badge-dot"></div>U.S. SEC — Regulation D Certification</div>
+      <div class="badge"><div class="badge-dot"></div>AI-Driven Proof of Reserves</div>
+    </div>
+    <br><br>
+    <a href="compliance.html" class="btn-outline">View All Certifications ↗</a>
+  </section>
+
+  <!-- Pages Grid -->
+  <section>
+    <div class="section-label">Resource Center</div>
+    <h2 class="section-title">Explore EORMC.id</h2>
+    <p class="section-subtitle">This site provides official documentation, credentials, and institutional information for EORMC. The trading platform is at <a href="https://eormc.com" style="color: var(--gold);">eormc.com</a>.</p>
+    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      <a href="about.html" style="text-decoration:none;">
+        <div class="card">
+          <div class="card-icon">◎</div>
+          <h3>About EORMC</h3>
+          <p>Our founding story, mission, platform vision, and the values that drive us toward a more open crypto universe.</p>
+        </div>
+      </a>
+      <a href="compliance.html" style="text-decoration:none;">
+        <div class="card">
+          <div class="card-icon">⚖</div>
+          <h3>Compliance</h3>
+          <p>Full details on our regulatory licenses, MSB certification, SEC Regulation D, and global compliance framework.</p>
+        </div>
+      </a>
+      <a href="security.html" style="text-decoration:none;">
+        <div class="card">
+          <div class="card-icon">⬡</div>
+          <h3>Security</h3>
+          <p>Technical security architecture, AI-powered risk systems, asset protection protocols, and reserve transparency.</p>
+        </div>
+      </a>
+      <a href="team.html" style="text-decoration:none;">
+        <div class="card">
+          <div class="card-icon">◈</div>
+          <h3>Team</h3>
+          <p>Meet our leadership — a 15-country team from Google, Oracle, Coinbase, and top-tier global investment banks.</p>
+        </div>
+      </a>
+      <a href="roadmap.html" style="text-decoration:none;">
+        <div class="card">
+          <div class="card-icon">→</div>
+          <h3>Roadmap</h3>
+          <p>EORMC's milestone history from 2020 to today, plus the phased vision for 1.0, 2.0, and 3.0.</p>
+        </div>
+      </a>
+      <a href="faq.html" style="text-decoration:none;">
+        <div class="card">
+          <div class="card-icon">?</div>
+          <h3>FAQ</h3>
+          <p>Answers to common questions about EORMC's operations, security, compliance, and how to get started.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="logo-horizontal.png" alt="EORMC">
+      <p>EORMC is a global crypto trading infrastructure provider — AI-driven, compliance-first, serving 22M+ users worldwide. This site (eormc.id) is the official resource and credential center.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="about.html">About EORMC</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="security.html">Security</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://eormc.com" target="_blank">Exchange ↗</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:support@eormc.com">support@eormc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 EORMC. All rights reserved. This is eormc.id — the official information portal.</span>
+    <span>Trading platform: <a href="https://eormc.com">eormc.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
