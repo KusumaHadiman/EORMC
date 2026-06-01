@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge — EORMC Insights & Education</title>
+  <meta name="description" content="EORMC Knowledge Hub — crypto education, market insights, and industry analysis.">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold: #C9A227;
+  --gold-light: #F0C040;
+  --gold-dark: #8B6914;
+  --gold-glow: rgba(201,162,39,0.3);
+  --black: #050608;
+  --dark: #0A0B0F;
+  --dark2: #10121A;
+  --border: rgba(201,162,39,0.2);
+  --border-bright: rgba(201,162,39,0.5);
+  --text: #E8E4D0;
+  --text-dim: #9A9480;
+  --text-bright: #F5F0E0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(201,162,39,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(201,162,39,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(5,6,8,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; list-style: none; }
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 18px; right: 18px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold-light); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold)) !important;
+  color: var(--black) !important;
+  border-radius: 2px;
+  font-weight: 700 !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important; }
+
+/* ── MAIN ── */
+main { position: relative; z-index: 1; padding-top: 68px; }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 100px 40px 80px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+.hero-eyebrow span {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.hero h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--text-bright);
+  margin-bottom: 20px;
+}
+.hero h1 span { color: var(--gold); }
+.hero p {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ── LIST SECTION ── */
+.list-section {
+  padding: 72px 40px 96px;
+  position: relative;
+  z-index: 1;
+}
+.list-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.list-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-bright);
+}
+.list-header-left {}
+.list-count {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+.list-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+.list-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── ARTICLE CARDS ── */
+.article-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 20px;
+  align-items: center;
+  gap: 28px;
+  padding: 26px 24px;
+  margin-bottom: 2px;
+  background: var(--dark2);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.article-item:hover {
+  background: rgba(201,162,39,0.04);
+  border-left-color: var(--gold);
+  transform: translateX(4px);
+}
+.article-item:first-child {
+  border-radius: 2px 2px 0 0;
+}
+.article-item:last-child {
+  border-radius: 0 0 2px 2px;
+  margin-bottom: 0;
+}
+
+.article-date {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+.article-date .year { display: block; opacity: 0.5; font-size: 10px; margin-bottom: 3px; }
+.article-date .day  { display: block; font-size: 13px; color: var(--text); }
+
+.article-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-bright);
+  line-height: 1.45;
+  transition: color 0.2s;
+}
+.article-item:hover .article-title { color: var(--gold-light); }
+
+.article-arrow {
+  color: var(--gold-dark);
+  font-size: 16px;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.3;
+  text-align: right;
+}
+.article-item:hover .article-arrow { opacity: 1; transform: translateX(3px); }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1;
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  padding: 56px 80px 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand img { height: 32px; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--text-dim); line-height: 1.7; max-width: 300px; }
+.footer-col h4 {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; color: var(--text-dim); text-decoration: none;
+  font-size: 14px; margin-bottom: 8px; font-weight: 500; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 80px 24px 60px; }
+  .list-section { padding: 48px 24px 72px; }
+  .article-item { grid-template-columns: 90px 1fr; gap: 16px; padding: 20px 16px; }
+  .article-arrow { display: none; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  footer { padding: 40px 24px 24px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-horizontal.png" alt="EORMC">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="knowledge.html" class="active">Knowledge</a></li>
+    <li><a href="https://eormc.com" target="_blank" class="nav-cta">Trade Now ↗</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="hero-eyebrow"><span>eormc.id / knowledge</span></div>
+    <h1>Knowledge <span>Hub</span></h1>
+    <p>Insights, education, and analysis from the EORMC team — covering crypto fundamentals, security practices, and the regulatory landscape.</p>
+  </div>
+
+  <div class="list-section">
+    <div class="list-inner">
+
+      <div class="list-header">
+        <div class="list-header-left">
+          <div class="list-count">All Articles</div>
+          <div class="list-title">Latest Posts</div>
+        </div>
+        <div class="list-note">Updated regularly</div>
+      </div>
+      <a href="One-More-Verification,-One-More-Layer-Of-Protection-How-EORMC-Strengthens-User-Asset-Security-Through-2FA.html" class="article-item">
+        <span class="article-date">
+          <span class="year">2026</span>
+          <span class="day">Jun 01</span>
+        </span>
+        <span class="article-title">One More Verification, One More Layer Of Protection: How EORMC Strengthens User Asset Security Through 2FA</span>
+        <span class="article-arrow">→</span>
+      </a>
+
+      <a href="EORMC-Exchange-Observation-How-Can-A-Crypto.html" class="article-item">
+        <span class="article-date">
+          <span class="year">2026</span>
+          <span class="day">Jun 01</span>
+        </span>
+        <span class="article-title">EORMC Exchange Observation: How Can A Crypto Platform Meet The Needs Of Both Ordinary Users And Quantitative Trading Teams?</span>
+        <span class="article-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="logo-horizontal.png" alt="EORMC">
+      <p>EORMC — The Launchpad to the Crypto Universe. Founded 2020. Serving 22M+ users globally with AI-driven, compliant crypto infrastructure.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="about.html">About EORMC</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="security.html">Security</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="faq.html">FAQ</a>
+      <a href="knowledge.html">Knowledge</a>
+      <a href="https://eormc.com" target="_blank">Exchange ↗</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:support@eormc.com">support@eormc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 EORMC. All rights reserved. eormc.id — Official Information Portal.</span>
+    <span>Trading platform: <a href="https://eormc.com">eormc.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
