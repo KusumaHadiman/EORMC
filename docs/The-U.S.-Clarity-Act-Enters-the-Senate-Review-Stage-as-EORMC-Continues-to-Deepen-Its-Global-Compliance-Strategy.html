@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ① Title -->
+  <title>The U.S. Clarity Act Enters the Senate Review Stage, as EORMC Continues to Deepen Its Global Compliance Strategy</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold: #C9A227;
+  --gold-light: #F0C040;
+  --gold-dark: #8B6914;
+  --gold-glow: rgba(201,162,39,0.3);
+  --black: #050608;
+  --dark: #0A0B0F;
+  --dark2: #10121A;
+  --dark3: #161824;
+  --border: rgba(201,162,39,0.2);
+  --border-bright: rgba(201,162,39,0.5);
+  --text: #E8E4D0;
+  --text-dim: #9A9480;
+  --text-bright: #F5F0E0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(201,162,39,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(201,162,39,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(5,6,8,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; list-style: none; }
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 18px; right: 18px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold-light); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold)) !important;
+  color: var(--black) !important;
+  border-radius: 2px;
+  font-weight: 700 !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important; }
+
+/* ── MAIN ── */
+main { position: relative; z-index: 1; padding-top: 68px; }
+
+/* ── ARTICLE LAYOUT ── */
+.article-outer {
+  padding: 64px 80px 96px;
+}
+.article-wrap {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+/* Back link */
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 44px;
+  transition: color 0.2s;
+}
+.article-back:hover { color: var(--gold-light); }
+
+/* Title */
+.article-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(20px, 3.5vw, 36px);
+  font-weight: 900;
+  color: var(--text-bright);
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+
+/* Meta row: date + tags */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.article-date {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+.article-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.article-tag {
+  background: rgba(201,162,39,0.07);
+  border: 1px solid var(--border);
+  color: var(--gold-light);
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 2px;
+}
+
+/* Body content */
+.article-body { font-size: 16px; line-height: 1.9; }
+
+.article-body p {
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+.article-body h2 {
+  font-family: 'Orbitron', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  margin: 44px 0 14px;
+}
+.article-body h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin: 28px 0 10px;
+}
+.article-body strong { color: var(--text); font-weight: 600; }
+.article-body em { color: var(--text); font-style: italic; }
+
+.article-body ul,
+.article-body ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.article-body li {
+  color: var(--text-dim);
+  margin-bottom: 9px;
+  line-height: 1.75;
+}
+.article-body li::marker { color: var(--gold-dark); }
+
+.article-body blockquote {
+  border-left: 2px solid var(--gold-dark);
+  margin: 32px 0;
+  padding: 14px 24px;
+  background: rgba(201,162,39,0.04);
+  color: var(--text);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1;
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  padding: 56px 80px 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand img { height: 32px; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: var(--text-dim); line-height: 1.7; max-width: 300px; }
+.footer-col h4 {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; color: var(--text-dim); text-decoration: none;
+  font-size: 14px; margin-bottom: 8px; font-weight: 500; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .article-outer { padding: 40px 24px 72px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  footer { padding: 40px 24px 24px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+  </style>
+</head>
+<body>
+
+<nav>
+
+  <a href="index.html" class="nav-logo">
+    <img src="logo-horizontal.png" alt="EORMC">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="knowledge.html" class="active">Knowledge</a></li>
+    <li><a href="https://eormc.com" target="_blank" class="nav-cta">Trade Now ↗</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="article-outer">
+    <div class="article-wrap">
+
+      <a href="knowledge.html" class="article-back">← Back to Knowledge Hub</a>
+
+      <!-- ① Title -->
+      <h1 class="article-title">The U.S. Clarity Act Enters the Senate Review Stage, as EORMC Continues to Deepen Its Global Compliance Strategy</h1>
+
+      <div class="article-meta">
+        <!-- ② time -->
+        <span class="article-date">2026 · 06 · 05</span>
+        <!-- ③ Tag -->
+        <div class="article-tags">
+          <span class="article-tag">Compliance</span>
+          <span class="article-tag">EORMC</span>
+        </div>
+      </div>
+
+      <!-- ④ text -->
+      <div class="article-body">
+
+<p>As the U.S. digital asset regulatory framework becomes further clarified, the crypto industry is entering a new stage of development. Recently, the U.S. Clarity Act was formally submitted by the Senate Banking Committee and placed on the Senate legislative calendar, marking important progress in the construction of the U.S. digital asset regulatory system. Against the backdrop of the industry gradually moving toward standardized and institutionalized development, global digital asset platforms are accelerating the construction of more complete compliance and security systems. As a global digital asset service platform with AI-driven technology and compliant operations as its core strategy, EORMC is continuously strengthening its global compliance layout and asset security development to create a more transparent, secure, and trustworthy trading environment for users.</p>
+
+<center>
+<img src="img/06051.png">
+</center>
+
+<h2>The U.S. Digital Asset Regulation Takes a Key Step</h2>
+
+<p>The U.S. Clarity Act has been formally submitted by the Senate Banking Committee and placed on the Senate legislative calendar. Previously, the Senate Banking Committee passed the bill on May 14 with 15 votes in favor and 9 votes against, and it officially entered the Senate review process on June 1, obtaining eligibility for full Senate discussion.</p>
+
+<p>EORMC analysts believe that the advancement of the Clarity Act means that the United States is accelerating the establishment of a clearer digital asset regulatory framework, providing industry participants with clearer regulatory guidance, while also expected to further promote the entry of institutional capital into the digital asset market.</p>
+
+<p>Over the past few years, the crypto industry has undergone a transformation from rapid growth to standardized development, and the improvement of the regulatory system will become an important foundation for promoting the long-term healthy development of the industry. As regulatory rules gradually become clearer, market competition will also shift from simple business expansion to comprehensive competition in compliance capabilities, risk control capabilities, and user asset protection capabilities.</p>
+
+<h2>Compliance Is Becoming the Core Competitiveness of Digital Asset Platforms</h2>
+
+<p>As major global economies gradually clarify their regulatory stance on digital assets, compliance is no longer merely an additional option for platform development, but has become an important standard for measuring the long-term value of a platform.</p>
+
+<p>More and more institutional investors, when selecting cooperative platforms, regard regulatory qualifications, security systems, and transparency as core considerations. Especially against the backdrop of the continuously strengthening institutionalization trend, platforms with complete compliance systems are more likely to gain market trust and capital recognition.</p>
+
+<p>EORMC analysis indicates that the development logic of the digital asset industry will undergo significant changes in the future. Users will focus not only on trading efficiency and product innovation, but also on whether a platform has sustained operating capabilities, whether it meets regulatory requirements, and whether it can effectively protect user asset security.</p>
+
+<h2>EORMC Continues to Deepen Its Global Compliance Layout</h2>
+
+<p>As a global digital asset service platform, EORMC has, since its establishment, consistently adhered to the development philosophy of “AI reshaping trading, compliance safeguarding value,” and has made compliance development an important component of the platform long-term strategy.</p>
+
+<p>At present, EORMC has established a compliance operation system covering multiple markets and has obtained an MSB license issued by the Financial Crimes Enforcement Network (FinCEN) of the U.S. Department of the Treasury. At the same time, it continues to advance the construction of a global regulatory framework to meet user demand for compliant services in different regions.</p>
+
+<p>As the global regulatory environment continues to change, EORMC tracks regulatory policy changes in various regions in real time through its intelligent compliance engine and combines AI technology to achieve dynamic adaptation to compliance requirements, helping platform operations achieve more stable and standardized development in different markets.</p>
+
+<p>A relevant EORMC representative stated: “The industry is entering a more mature stage of development. The improvement of regulation is not only conducive to the long-term healthy development of the industry, but also helps enhance market trust. EORMC will continue to advance global compliance development and serve global users in a more open and transparent manner.”</p>
+
+<h2>AI Risk Control and Asset Security Systems Are Upgraded Simultaneously</h2>
+
+<p>While advancing compliance development, EORMC is also continuously strengthening its asset security and risk control capabilities.</p>
+
+<p>By combining AI technology with a multi-layer security architecture, the platform has established a comprehensive protection system covering account security, trading security, and asset security. The system can monitor abnormal behaviors, on-chain fund flows, and potential risk signals in real time, and identify and manage risks through an intelligent early-warning mechanism.</p>
+
+<p>In addition, EORMC continues to improve its transparent operation mechanisms, enhancing platform transparency through asset reserve verification, risk monitoring, and audit mechanisms, and providing users with a more trustworthy digital asset service environment.</p>
+
+<p>As the digital asset market gradually moves toward institutionalization and standardization, security and compliance have become important components of platform competitiveness. Through continuous investment in technological research and development, risk control system development, and global compliance layout, EORMC is striving to build a more robust digital financial infrastructure.</p>
+
+<h2>The Industry Enters a New Stage of “Compliance-Driven Growth”</h2>
+
+<p>The advancement of the Clarity Act sends a positive signal, showing that major global markets are gradually establishing clearer digital asset regulatory systems. For the entire industry, this not only means that the regulatory environment is being further improved, but also that the digital asset market is moving from a stage of rapid development toward a stage of high-quality development.</p>
+
+<p>Under this trend, compliance, security, and transparency will become core keywords for industry development. In the future, platforms that can continuously improve compliance capabilities, strengthen asset security protection, and establish long-term user trust will have greater opportunities to gain leading advantages in global digital asset market competition.</p>
+
+<p>As one of the platforms continuously promoting AI technological innovation and global compliance development, EORMC is building a more stable, transparent, and trustworthy digital asset service ecosystem for users through the three pillars of technology, compliance, and security.</p>
+
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="logo-horizontal.png" alt="EORMC">
+      <p>EORMC — The Launchpad to the Crypto Universe. Founded 2020. Serving 22M+ users globally with AI-driven, compliant crypto infrastructure.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="about.html">About EORMC</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="security.html">Security</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="faq.html">FAQ</a>
+      <a href="knowledge.html">Knowledge</a>
+      <a href="https://eormc.com" target="_blank">Exchange ↗</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:support@eormc.com">support@eormc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 EORMC. All rights reserved. eormc.id — Official Information Portal.</span>
+    <span>Trading platform: <a href="https://eormc.com">eormc.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
