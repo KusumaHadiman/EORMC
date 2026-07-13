@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EORMC Roadmap Analysis — History & Vision | Drexonium</title>
+  <meta name="description" content="Independent analysis of EORMC's milestone history 2020–2025 and three-phase future roadmap (1.0, 2.0, 3.0).">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --gold: #C9A227;
+  --gold-light: #F0C040;
+  --gold-dark: #8B6914;
+  --gold-glow: rgba(201,162,39,0.3);
+  --black: #050608;
+  --dark: #0A0B0F;
+  --dark2: #10121A;
+  --dark3: #161824;
+  --border: rgba(201,162,39,0.2);
+  --border-bright: rgba(201,162,39,0.5);
+  --text: #E8E4D0;
+  --text-dim: #9A9480;
+  --text-bright: #F5F0E0;
+  --green: #4ade80;
+  --green-dim: rgba(74,222,128,0.08);
+  --green-border: rgba(74,222,128,0.25);
+  --blue: #60a5fa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(201,162,39,0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(201,162,39,0.03) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(5,6,8,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-brand-name { font-family: 'Orbitron', monospace; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; }
+.nav-brand-tag { font-size: 10px; color: var(--text-dim); letter-spacing: 1px; border-left: 1px solid var(--border); padding-left: 10px; margin-left: 2px; font-family: 'Inter', sans-serif; }
+.nav-links { display: flex; align-items: center; list-style: none; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; transition: color 0.2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-ext { font-size: 11px; color: var(--text-dim); border: 1px solid var(--border); padding: 5px 14px; border-radius: 2px; text-decoration: none; font-family: 'Orbitron', monospace; letter-spacing: 1px; transition: all 0.2s; }
+.nav-ext:hover { color: var(--gold-light); border-color: var(--border-bright); }
+/* MAIN */
+main { position: relative; z-index: 1; padding-top: 64px; }
+/* HERO */
+.hero { min-height: 360px; display: flex; align-items: center; padding: 80px 80px 64px; position: relative; border-bottom: 1px solid var(--border); overflow: hidden; }
+.hero::after { content: ''; position: absolute; top: -160px; right: -160px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(201,162,39,0.06) 0%, transparent 70%); pointer-events: none; }
+.hero-kicker { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,162,39,0.06); border: 1px solid var(--border); padding: 5px 14px; border-radius: 2px; margin-bottom: 24px; }
+.hero-kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.hero-kicker span { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.hero h1 { font-family: 'Orbitron', monospace; font-size: clamp(26px, 4vw, 52px); font-weight: 900; line-height: 1.08; color: var(--text-bright); margin-bottom: 16px; }
+.hero h1 .accent { color: var(--gold); }
+.hero p { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dim); max-width: 560px; line-height: 1.85; }
+/* SECTIONS */
+section { padding: 72px 80px; position: relative; z-index: 1; }
+section + section { border-top: 1px solid var(--border); }
+.section-eyebrow { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 8px; }
+.section-title { font-family: 'Orbitron', monospace; font-size: clamp(18px, 2.5vw, 30px); font-weight: 700; color: var(--text-bright); line-height: 1.2; margin-bottom: 14px; }
+.section-lead { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dim); max-width: 640px; line-height: 1.8; margin-bottom: 44px; }
+/* TWO COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+/* ANALYSIS */
+.analysis-body { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dim); line-height: 1.85; }
+.analysis-body p { margin-bottom: 18px; }
+.analysis-body strong { color: var(--text); font-weight: 500; }
+.analysis-box { border: 1px solid var(--border); background: var(--dark2); padding: 24px 28px; margin-bottom: 16px; border-radius: 2px; }
+.analysis-box-title { font-family: 'Orbitron', monospace; font-size: 12px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.5px; margin-bottom: 10px; }
+.analysis-box p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.75; }
+/* HIGHLIGHT BOX */
+.highlight-box { border: 1px solid var(--border-bright); background: rgba(201,162,39,0.04); border-radius: 2px; padding: 28px 32px; margin-bottom: 20px; }
+.highlight-box h3 { font-family: 'Orbitron', monospace; font-size: 13px; color: var(--gold-light); margin-bottom: 10px; }
+.highlight-box p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.75; }
+/* CARDS */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.card { background: var(--dark2); padding: 32px 28px; transition: background 0.2s; }
+.card:hover { background: var(--dark3); }
+.card-icon { width: 40px; height: 40px; border: 1px solid var(--gold-dark); border-radius: 2px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--gold); font-size: 18px; }
+.card h3 { font-family: 'Orbitron', monospace; font-size: 13px; font-weight: 700; color: var(--text-bright); margin-bottom: 10px; }
+.card p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+/* STATS */
+.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 56px; }
+.stat-block { background: var(--dark); padding: 24px 20px; text-align: center; }
+.stat-num { font-family: 'Orbitron', monospace; font-size: clamp(20px, 2.5vw, 30px); font-weight: 900; color: var(--gold); display: block; margin-bottom: 5px; }
+.stat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+/* BADGE */
+.badge-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+.badge { display: flex; align-items: center; gap: 10px; background: var(--green-dim); border: 1px solid var(--green-border); padding: 10px 18px; border-radius: 2px; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1px; color: var(--green); }
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 2.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+/* TIMELINE */
+.tl { position: relative; padding-left: 28px; }
+.tl::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold-dark), transparent); }
+.tl-item { position: relative; margin-bottom: 32px; padding-left: 20px; }
+.tl-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); border: 2px solid var(--black); box-shadow: 0 0 8px var(--gold-glow); }
+.tl-year { font-family: 'Orbitron', monospace; font-size: 10px; letter-spacing: 2.5px; color: var(--gold); margin-bottom: 6px; }
+.tl-text { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+/* PHASE CARDS */
+.phase-card { border: 1px solid var(--border); background: var(--dark2); border-radius: 2px; overflow: hidden; margin-bottom: 20px; transition: border-color 0.2s; }
+.phase-card:hover { border-color: var(--border-bright); }
+.phase-header { background: rgba(201,162,39,0.05); border-bottom: 1px solid var(--border); padding: 22px 30px; display: flex; align-items: center; justify-content: space-between; }
+.phase-name { font-family: 'Orbitron', monospace; font-size: 17px; font-weight: 900; color: var(--gold); }
+.phase-sub { font-size: 13px; color: var(--text-dim); font-family: 'Inter', sans-serif; margin-top: 4px; }
+.phase-tag { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; color: var(--text-dim); border: 1px solid var(--border); padding: 4px 10px; text-transform: uppercase; }
+.phase-body { padding: 24px 30px; }
+.phase-body ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.phase-body li { display: flex; gap: 12px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+.phase-body li::before { content: '◎'; color: var(--gold-dark); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-bright); transition: color 0.2s; user-select: none; }
+.faq-q:hover { color: var(--gold-light); }
+.faq-q span { font-family: 'Orbitron', monospace; font-size: 14px; color: var(--gold); transition: transform 0.3s; }
+.faq-q.open span { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s; }
+.faq-a.open { max-height: 500px; padding-bottom: 22px; }
+.faq-a p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.8; padding-right: 40px; }
+/* DISCLAIMER BAR */
+.disclaimer-bar { display: flex; align-items: flex-start; gap: 12px; background: rgba(96,165,250,0.05); border: 1px solid rgba(96,165,250,0.18); padding: 14px 20px; border-radius: 2px; margin-bottom: 32px; }
+.disclaimer-bar p { font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(96,165,250,0.75); line-height: 1.6; }
+/* RATING */
+.rating-list { display: flex; flex-direction: column; gap: 14px; }
+.rating-row { display: flex; align-items: center; gap: 14px; }
+.rating-label { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); min-width: 160px; }
+.rating-track { flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+.rating-fill { height: 100%; background: linear-gradient(to right, var(--gold-dark), var(--gold-light)); border-radius: 2px; }
+.rating-score { font-family: 'Orbitron', monospace; font-size: 12px; color: var(--gold); min-width: 36px; text-align: right; }
+/* TABLE */
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th { font-family: 'Orbitron', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 12px 18px; text-align: left; border-bottom: 1px solid var(--border-bright); background: rgba(201,162,39,0.04); }
+.data-table td { padding: 14px 18px; border-bottom: 1px solid var(--border); color: var(--text-dim); font-family: 'Inter', sans-serif; }
+.data-table tr:hover td { background: rgba(201,162,39,0.02); }
+/* FOOTER */
+footer { position: relative; z-index: 1; background: var(--dark2); border-top: 1px solid var(--border); padding: 56px 80px 32px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand-name { font-family: 'Orbitron', monospace; font-size: 15px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; margin-bottom: 6px; }
+.footer-brand-tag { font-size: 10px; color: var(--gold); letter-spacing: 1px; font-family: 'Orbitron', monospace; opacity: 0.7; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: var(--text-dim); line-height: 1.7; max-width: 280px; font-family: 'Inter', sans-serif; }
+.footer-col h4 { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; opacity: 0.7; }
+.footer-col a { display: block; color: var(--text-dim); text-decoration: none; font-size: 14px; margin-bottom: 8px; font-weight: 500; font-family: 'Rajdhani', sans-serif; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-start; font-size: 12px; color: var(--text-dim); font-family: 'Inter', sans-serif; line-height: 1.6; gap: 40px; }
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+.footer-disc { max-width: 500px; color: rgba(154,148,128,0.6); }
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero, section { padding: 56px 24px; }
+  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  footer { padding: 40px 24px 24px; }
+  .footer-bottom { flex-direction: column; }
+}
+
+.year-block { margin-bottom:44px; }
+.year-num { font-family:'Orbitron',monospace; font-size:38px; font-weight:900; color:rgba(201,162,39,0.15); line-height:1; margin-bottom:-4px; }
+.year-events { border-left:1px solid var(--border); padding-left:28px; margin-left:8px; }
+.year-event { padding:14px 0; border-bottom:1px solid rgba(201,162,39,0.05); }
+.year-event:last-child { border-bottom:none; }
+.event-month { font-family:'Orbitron',monospace; font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:5px; }
+.event-text { font-family:'Inter',sans-serif; font-size:14px; color:var(--text-dim); line-height:1.7; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">DREXONIUM</span>
+    <span class="nav-brand-tag">Exchange Intelligence</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Analysis</a></li>
+    <li><a href="about.html">About EORMC</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="roadmap.html" class="active">Roadmap</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="knowledge.html">Knowledge</a></li>
+    <li><a href="https://eormc.com" target="_blank" class="nav-ext">Visit Exchange ↗</a></li>
+  </ul>
+</nav>
+<main>
+  <div class="hero">
+    <div>
+      <div class="hero-kicker"><div class="hero-kicker-dot"></div><span>drexonium.com · Roadmap Analysis</span></div>
+      <h1>Growth History<br>&amp; <span class="accent">Future Vision</span></h1>
+      <p>An independent review of EORMC's reported milestone history from 2020 to 2025, and analysis of the three-phase roadmap (1.0 → 2.0 → 3.0) as described in the platform's official whitepaper.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="disclaimer-bar">
+      <p>ℹ Milestone data below is sourced from EORMC's official whitepaper (V192506.1.0). Drexonium has not independently verified all historical claims. Future roadmap items represent EORMC's stated intentions, not guarantees.</p>
+    </div>
+
+    <div class="section-eyebrow">Growth at a Glance</div>
+    <h2 class="section-title">Key Growth Metrics (2020–2025)</h2>
+    <div class="stats-row">
+      <div class="stat-block"><span class="stat-num">$100M</span><span class="stat-label">Month 1 Volume (2021)</span></div>
+      <div class="stat-block"><span class="stat-num">1M</span><span class="stat-label">Users by Dec 2021</span></div>
+      <div class="stat-block"><span class="stat-num">$5B+</span><span class="stat-label">Daily Volume Sep 2023</span></div>
+      <div class="stat-block"><span class="stat-num">10M</span><span class="stat-label">Users by Dec 2023</span></div>
+      <div class="stat-block"><span class="stat-num">$10B+</span><span class="stat-label">Daily Volume Mar 2025</span></div>
+      <div class="stat-block"><span class="stat-num">22M+</span><span class="stat-label">Users Mar 2025</span></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:20px;">2020–2022</div>
+        <div class="year-block">
+          <div class="year-num">2020</div>
+          <div class="year-events">
+            <div class="year-event"><div class="event-month">November 2020</div><div class="event-text">EORMC founded. Core team assembled. AI-driven, compliance-first strategy established.</div></div>
+            <div class="year-event"><div class="event-month">December 2020</div><div class="event-text">Seed round closed at $6M from Silicon Valley and crypto venture funds.</div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year-num">2021</div>
+          <div class="year-events">
+            <div class="year-event"><div class="event-month">March 2021</div><div class="event-text">Platform launched with AI matching system. Spot trading live. First-month volume: $100M+.</div></div>
+            <div class="year-event"><div class="event-month">October 2021</div><div class="event-text">FinCEN MSB license obtained — described as the first AI-driven compliant trading platform globally.</div></div>
+            <div class="year-event"><div class="event-month">December 2021</div><div class="event-text">1M registered users. Daily volume stabilized at $500M+.</div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year-num">2022</div>
+          <div class="year-events">
+            <div class="year-event"><div class="event-month">July 2022</div><div class="event-text">Intelligent wealth management module launched. AUM exceeded $100M in first month.</div></div>
+            <div class="year-event"><div class="event-month">October 2022</div><div class="event-text">Multi-chain wallet released, supporting BTC, ETH, Polygon, Solana and other major assets.</div></div>
+            <div class="year-event"><div class="event-month">December 2022</div><div class="event-text">Inaugural "AI + Fintech Innovation Summit" hosted with 300+ global experts.</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:20px;">2023–2025</div>
+        <div class="year-block">
+          <div class="year-num">2023</div>
+          <div class="year-events">
+            <div class="year-event"><div class="event-month">March 2023</div><div class="event-text">"Best AI Fintech Platform" awarded by FinTech Breakthrough.</div></div>
+            <div class="year-event"><div class="event-month">September 2023</div><div class="event-text">Daily volume surpasses $5B. Ranked top 20 globally.</div></div>
+            <div class="year-event"><div class="event-month">December 2023</div><div class="event-text">10M+ users. Coverage in 100+ countries and regions.</div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year-num">2024</div>
+          <div class="year-events">
+            <div class="year-event"><div class="event-month">July 2024</div><div class="event-text">AI-driven Transparent Proof of Reserves launched, subject to independent third-party audit.</div></div>
+            <div class="year-event"><div class="event-month">October 2024</div><div class="event-text">FinCEN MSB license renewal passed — second federal compliance audit completed.</div></div>
+            <div class="year-event"><div class="event-month">December 2024</div><div class="event-text">"Most Innovative Crypto Trading Platform" awarded by Crypto Finance Conference.</div></div>
+          </div>
+        </div>
+        <div class="year-block">
+          <div class="year-num">2025</div>
+          <div class="year-events">
+            <div class="year-event"><div class="event-month">January 2025</div><div class="event-text">Strategic support reported from members of the Trump family.</div></div>
+            <div class="year-event"><div class="event-month">March 2025</div><div class="event-text">Daily volume exceeds $10B. 22M+ users. Ranked #16 globally.</div></div>
+            <div class="year-event"><div class="event-month">May 2025</div><div class="event-text">AI Open Platform launched for institutional users — advisory, API, one-stop solutions.</div></div>
+            <div class="year-event"><div class="event-month">June 2025</div><div class="event-text">EORMC Global Developer Program launched to promote blockchain + AI innovation.</div></div>
+            <div class="year-event"><div class="event-month">August 2025</div><div class="event-text">SEC Regulation D qualification obtained, expanding U.S. authorized product scope.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--dark2);">
+    <div class="section-eyebrow">Forward-Looking Analysis</div>
+    <h2 class="section-title">Three-Phase Roadmap</h2>
+    <p class="section-lead">EORMC's whitepaper outlines three development phases. Drexonium presents these as stated intentions — not verified commitments.</p>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div><div class="phase-name">EORMC 1.0</div><div class="phase-sub">Deepening the AI-Native Financial Ecosystem</div></div>
+        <div class="phase-tag">Near-Term</div>
+      </div>
+      <div class="phase-body"><ul>
+        <li>Deep integration of AI across every user interaction and risk control touchpoint — claimed qualitative leap in trading experience.</li>
+        <li>Natural language and intent-driven trading models: complex strategy deployment through conversational AI assistants.</li>
+        <li>Continuous upgrade of the AI-powered global compliance engine for real-time regulatory policy tracking and multi-jurisdiction adaptation.</li>
+        <li>Regional operations expansion and local service buildout across major global markets.</li>
+      </ul></div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div><div class="phase-name">EORMC 2.0</div><div class="phase-sub">Open & Interconnected Multi-Chain Universe</div></div>
+        <div class="phase-tag">Mid-Term</div>
+      </div>
+      <div class="phase-body"><ul>
+        <li>Full ecosystem opening — support for nearly all mainstream and emerging public chain assets under unified infrastructure.</li>
+        <li>Open APIs and developer platform to attract institutions and innovative projects to the AI financial cloud.</li>
+        <li>RWA (Real World Asset) on-chain integration and cross-border settlement innovation — bridging crypto and traditional economic systems.</li>
+        <li>Establish EORMC as an open, interconnected value exchange network spanning digital and traditional finance.</li>
+      </ul></div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div><div class="phase-name">EORMC 3.0</div><div class="phase-sub">Shaping a Sustainable Crypto Civilization</div></div>
+        <div class="phase-tag">Long-Term</div>
+      </div>
+      <div class="phase-body"><ul>
+        <li>Transcend the traditional exchange model — driving the ecosystem toward greater fairness, inclusiveness, and sustainability.</li>
+        <li>Full community governance mechanisms granting users voting and proposal rights over ecosystem decisions.</li>
+        <li>AI-powered green finance initiatives: optimizing global network energy efficiency and introducing carbon footprint tracking tools.</li>
+        <li>Global crypto education hub — accessible simulation environments to enable inclusive digital finance worldwide.</li>
+      </ul></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">DREXONIUM</div>
+      <div class="footer-brand-tag">Exchange Intelligence</div>
+      <p>Independent analysis of crypto exchanges. Not affiliated with EORMC or any exchange. Content based on public disclosures and the EORMC official whitepaper.</p>
+    </div>
+    <div class="footer-col">
+      <h4>EORMC Analysis</h4>
+      <a href="index.html">Overview & Analysis</a>
+      <a href="about.html">About EORMC</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="security.html">Security</a>
+    </div>
+    <div class="footer-col">
+      <h4>More Pages</h4>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="faq.html">FAQ</a>
+      <a href="knowledge.html">Knowledge Hub</a>
+      <a href="https://eormc.com" target="_blank">EORMC Exchange ↗</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:support@eormc.com">support@eormc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-disc">Drexonium (drexonium.com) is an independent third-party analysis site. Not affiliated with EORMC. This is not financial advice. All data sourced from EORMC official whitepaper V192506.1.0 and public disclosures.</span>
+    <span>© 2025 Drexonium · <a href="mailto:support@eormc.com">support@eormc.com</a></span>
+  </div>
+</footer>
+</body>
+</html>

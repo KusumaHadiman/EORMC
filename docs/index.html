@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EORMC Exchange Review & Analysis — Drexonium</title>
+  <meta name="description" content="Independent analysis of EORMC — a global AI-driven crypto exchange. Regulatory status, security architecture, team credentials, trading products, and platform assessment.">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --gold: #C9A227;
+  --gold-light: #F0C040;
+  --gold-dark: #8B6914;
+  --gold-glow: rgba(201,162,39,0.3);
+  --black: #050608;
+  --dark: #0A0B0F;
+  --dark2: #10121A;
+  --dark3: #161824;
+  --border: rgba(201,162,39,0.2);
+  --border-bright: rgba(201,162,39,0.5);
+  --text: #E8E4D0;
+  --text-dim: #9A9480;
+  --text-bright: #F5F0E0;
+  --green: #4ade80;
+  --green-dim: rgba(74,222,128,0.1);
+  --green-border: rgba(74,222,128,0.3);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96,165,250,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(201,162,39,0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(201,162,39,0.03) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(5,6,8,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-brand-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 2px;
+}
+.nav-brand-tag {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  border-left: 1px solid var(--border);
+  padding-left: 10px;
+  margin-left: 2px;
+  font-family: 'Inter', sans-serif;
+}
+.nav-links { display: flex; align-items: center; list-style: none; }
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 16px; right: 16px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--gold-light); }
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-ext {
+  font-size: 11px;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.nav-ext:hover {
+  color: var(--gold-light);
+  border-color: var(--border-bright);
+}
+
+main { position: relative; z-index: 1; padding-top: 64px; }
+
+/* ── HERO — third-party framing ── */
+.hero {
+  padding: 90px 80px 72px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -160px; right: -160px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(201,162,39,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,162,39,0.06);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+.hero-kicker-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.hero-kicker span {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(28px, 4.5vw, 58px);
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--text-bright);
+  margin-bottom: 10px;
+}
+.hero h1 .accent { color: var(--gold); }
+.hero-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(15px, 2vw, 20px);
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+.hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-dim);
+  max-width: 580px;
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+.hero-disclaimer {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(96,165,250,0.06);
+  border: 1px solid rgba(96,165,250,0.2);
+  padding: 12px 18px;
+  border-radius: 2px;
+  max-width: 580px;
+}
+.hero-disclaimer-icon {
+  color: var(--blue);
+  font-size: 14px;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+.hero-disclaimer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(96,165,250,0.8);
+  line-height: 1.6;
+}
+
+/* ── VERDICT STRIP ── */
+.verdict-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+.verdict-item {
+  padding: 24px 28px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.verdict-item:last-child { border-right: none; }
+.verdict-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.verdict-value {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 900;
+  color: var(--gold);
+}
+.verdict-note {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 72px 80px;
+  position: relative;
+  z-index: 1;
+}
+section + section { border-top: 1px solid var(--border); }
+
+.section-eyebrow {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(18px, 2.5vw, 30px);
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.section-lead {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-dim);
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 44px;
+}
+
+/* ── OVERVIEW TWO-COL ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+/* ── FACT CARDS ── */
+.fact-card {
+  background: var(--dark2);
+  padding: 28px 28px;
+}
+.fact-card:hover { background: var(--dark3); }
+.fact-card-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.fact-card-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.fact-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+/* ── ANALYSIS BLOCKS ── */
+.analysis-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.85;
+}
+.analysis-body p { margin-bottom: 18px; }
+.analysis-body strong { color: var(--text); font-weight: 500; }
+
+.analysis-box {
+  border: 1px solid var(--border);
+  background: var(--dark2);
+  padding: 24px 28px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+.analysis-box-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.analysis-box p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+/* ── COMPLIANCE BADGES ── */
+.compliance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.compliance-badge {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--green-dim);
+  border: 1px solid var(--green-border);
+  padding: 20px 22px;
+  border-radius: 2px;
+}
+.compliance-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-top: 5px;
+  flex-shrink: 0;
+  animation: blink 2.5s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.compliance-info {}
+.compliance-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+.compliance-detail {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(74,222,128,0.6);
+  line-height: 1.5;
+}
+
+/* ── RATING BAR ── */
+.rating-list { display: flex; flex-direction: column; gap: 16px; }
+.rating-row { display: flex; align-items: center; gap: 16px; }
+.rating-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 160px;
+  letter-spacing: 0.5px;
+}
+.rating-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rating-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--gold-dark), var(--gold-light));
+  border-radius: 2px;
+}
+.rating-score {
+  font-family: 'Orbitron', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ── TEAM ROW ── */
+.team-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.team-card {
+  border: 1px solid var(--border);
+  background: var(--dark2);
+  padding: 28px;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.team-card:hover { border-color: var(--border-bright); }
+.team-role {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.team-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 6px;
+}
+.team-prev {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.team-bio {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ── TIMELINE ── */
+.tl { position: relative; padding-left: 28px; }
+.tl::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold-dark), transparent);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 32px;
+  padding-left: 20px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -32px; top: 5px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--black);
+  box-shadow: 0 0 8px var(--gold-glow);
+}
+.tl-year {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.tl-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ── INVESTOR TAGS ── */
+.investor-wrap { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.investor-tag {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border: 1px solid var(--border);
+  padding: 7px 16px;
+  color: var(--text);
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.investor-tag:hover {
+  border-color: var(--border-bright);
+  color: var(--gold-light);
+}
+
+/* ── QUICK VERDICT ── */
+.verdict-card {
+  background: linear-gradient(135deg, rgba(201,162,39,0.06) 0%, var(--dark2) 60%);
+  border: 1px solid var(--border-bright);
+  padding: 40px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.verdict-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+.verdict-card-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+.verdict-card-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.85;
+}
+.verdict-card-body strong { color: var(--text-bright); font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1;
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  padding: 56px 80px 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.footer-brand-tag {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  font-family: 'Orbitron', monospace;
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+.footer-brand p { font-size: 13px; color: var(--text-dim); line-height: 1.7; max-width: 280px; font-family: 'Inter', sans-serif; }
+.footer-col h4 {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+.footer-col a {
+  display: block; color: var(--text-dim); text-decoration: none;
+  font-size: 14px; margin-bottom: 8px; font-weight: 500;
+  font-family: 'Rajdhani', sans-serif;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+.footer-disc {
+  max-width: 480px;
+  color: rgba(154,148,128,0.6);
+}
+
+@media (max-width: 1024px) {
+  nav { padding: 0 24px; }
+  .hero { padding: 72px 40px 56px; }
+  section { padding: 56px 40px; }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hero { padding: 72px 24px 48px; }
+  section { padding: 48px 24px; }
+  .verdict-strip { grid-template-columns: repeat(3, 1fr); }
+  .two-col, .team-row, .compliance-grid { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  footer { padding: 40px 24px 24px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">DREXONIUM</span>
+    <span class="nav-brand-tag">Exchange Intelligence</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Analysis</a></li>
+    <li><a href="about.html">About EORMC</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="knowledge.html">Knowledge</a></li>
+    <li><a href="https://eormc.com" target="_blank" class="nav-ext">Visit Exchange ↗</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ─── HERO ─── -->
+  <div class="hero">
+    <div class="hero-kicker">
+      <div class="hero-kicker-dot"></div>
+      <span>Independent Exchange Analysis · drexonium.com</span>
+    </div>
+    <h1>EORMC Exchange<br><span class="accent">Deep Analysis</span></h1>
+    <div class="hero-sub">Global Crypto Infrastructure Provider — AI-Driven · Compliance-First · Founded 2020</div>
+    <p class="hero-desc">
+      Drexonium provides independent analysis of crypto exchanges for informed decision-making.
+      This report covers EORMC's regulatory credentials, technical security architecture, team background,
+      trading products, historical milestones, and future roadmap — sourced directly from the platform's
+      official whitepaper and public disclosures.
+    </p>
+    <div class="hero-disclaimer">
+      <span class="hero-disclaimer-icon">ℹ</span>
+      <p>This site is an <strong>independent third-party analysis</strong> and is not affiliated with, endorsed by, or operated by EORMC. Content is based on publicly available information and the EORMC official whitepaper. For trading services, visit <a href="https://eormc.com" style="color: var(--blue);">eormc.com</a>.</p>
+    </div>
+  </div>
+
+  <!-- ─── KEY METRICS STRIP ─── -->
+  <div class="verdict-strip">
+    <div class="verdict-item">
+      <div class="verdict-label">Global Rank</div>
+      <div class="verdict-value">#16</div>
+      <div class="verdict-note">Among all exchanges</div>
+    </div>
+    <div class="verdict-item">
+      <div class="verdict-label">Users</div>
+      <div class="verdict-value">22M+</div>
+      <div class="verdict-note">100+ countries</div>
+    </div>
+    <div class="verdict-item">
+      <div class="verdict-label">Daily Volume</div>
+      <div class="verdict-value">$10B+</div>
+      <div class="verdict-note">As of March 2025</div>
+    </div>
+    <div class="verdict-item">
+      <div class="verdict-label">Founded</div>
+      <div class="verdict-value">2020</div>
+      <div class="verdict-note">November 2020</div>
+    </div>
+    <div class="verdict-item">
+      <div class="verdict-label">Seed Funding</div>
+      <div class="verdict-value">$6M</div>
+      <div class="verdict-note">Dec 2020 round</div>
+    </div>
+  </div>
+
+  <!-- ─── OVERVIEW + QUICK VERDICT ─── -->
+  <section>
+    <div class="section-eyebrow">Platform Overview</div>
+    <h2 class="section-title">What Is EORMC</h2>
+    <p class="section-lead">A summary of EORMC's positioning, business model, and core claims based on its official whitepaper (Version V192506.1.0).</p>
+
+    <div class="two-col">
+      <div class="analysis-body">
+        <p>EORMC presents itself as a <strong>global crypto trading infrastructure provider</strong>, founded in November 2020 with the stated philosophy of "AI reshapes trading, compliance safeguards value." The platform's central proposition is the deep integration of artificial intelligence across the entire trading stack — from order execution and risk management to asset custody and regulatory compliance.</p>
+        <p>The platform currently offers <strong>spot trading, derivatives, asset subscriptions, and wealth management products</strong>, operating across 100+ countries. According to its whitepaper, EORMC achieved $10B+ in daily trading volume and 22M+ registered users as of March 2025, placing it 16th globally among crypto exchanges by volume.</p>
+        <p>EORMC positions the "AI layer" not as a superficial feature but as foundational infrastructure — embedded into matching engines, risk scoring, asset screening, wallet custody tiering, and compliance adaptation simultaneously. This degree of AI integration, if substantiated, would represent a meaningful architectural differentiation from most exchanges in its competitive tier.</p>
+        <p>The platform's broader vision, as articulated in the whitepaper, is to act as a <strong>"launch vehicle to the crypto universe"</strong> — lowering barriers for the estimated 80% of global adults who have not yet participated in crypto markets. EORMC frames its role as infrastructure rather than destination.</p>
+      </div>
+      <div>
+        <div class="verdict-card">
+          <div class="verdict-card-label">Drexonium Assessment · Platform Summary</div>
+          <div class="verdict-card-body">
+            EORMC's whitepaper presents a coherent and well-structured platform narrative. The regulatory credentials — a <strong>U.S. FinCEN MSB license (renewed 2024)</strong> and <strong>SEC Regulation D qualification (2025)</strong> — are among the more substantive compliance markers in the retail crypto exchange sector. The leadership team carries verifiable institutional backgrounds from Google Brain and UBS, lending credibility to the technical and compliance claims.
+            <br><br>
+            The platform's growth trajectory (1M users in 2021 → 22M in 2025; $500M daily volume in 2021 → $10B+ in 2025) suggests genuine adoption momentum, though independent volume verification remains the industry-wide challenge it is for all exchanges.
+            <br><br>
+            The AI-first architecture is the platform's primary competitive positioning and, if it operates as described, represents a meaningful advancement over conventional exchange infrastructure.
+          </div>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <div class="section-eyebrow" style="margin-bottom: 12px;">Overall Ratings</div>
+          <div class="rating-list">
+            <div class="rating-row">
+              <span class="rating-label">Regulatory Standing</span>
+              <div class="rating-track"><div class="rating-fill" style="width:90%"></div></div>
+              <span class="rating-score">9/10</span>
+            </div>
+            <div class="rating-row">
+              <span class="rating-label">Security Architecture</span>
+              <div class="rating-track"><div class="rating-fill" style="width:88%"></div></div>
+              <span class="rating-score">8.8/10</span>
+            </div>
+            <div class="rating-row">
+              <span class="rating-label">Team Credentials</span>
+              <div class="rating-track"><div class="rating-fill" style="width:85%"></div></div>
+              <span class="rating-score">8.5/10</span>
+            </div>
+            <div class="rating-row">
+              <span class="rating-label">Product Breadth</span>
+              <div class="rating-track"><div class="rating-fill" style="width:80%"></div></div>
+              <span class="rating-score">8/10</span>
+            </div>
+            <div class="rating-row">
+              <span class="rating-label">Transparency</span>
+              <div class="rating-track"><div class="rating-fill" style="width:82%"></div></div>
+              <span class="rating-score">8.2/10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KEY FACTS ─── -->
+  <section style="background: var(--dark2); padding-top: 64px; padding-bottom: 64px;">
+    <div class="section-eyebrow">Key Data Points</div>
+    <h2 class="section-title">Platform Facts at a Glance</h2>
+    <p class="section-lead" style="margin-bottom: 32px;">Extracted directly from the EORMC whitepaper (V192506.1.0).</p>
+    <div class="three-col">
+      <div class="fact-card">
+        <div class="fact-card-label">Regulatory — U.S.</div>
+        <div class="fact-card-value">MSB</div>
+        <div class="fact-card-desc">FinCEN Money Services Business license. First issued Oct 2021, renewal audit passed Oct 2024. Demonstrates continuous federal compliance across two audit cycles.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-card-label">Regulatory — U.S. SEC</div>
+        <div class="fact-card-value">Reg D</div>
+        <div class="fact-card-desc">SEC Regulation D qualification obtained August 2025, authorizing certain securities-related products for accredited investors under federal exemption.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-card-label">Reserve Fund</div>
+        <div class="fact-card-value">3,000 BTC</div>
+        <div class="fact-card-desc">Dedicated reserve fund maintained as part of the user protection framework, complementing the AI-driven Proof of Reserves system launched July 2024.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-card-label">Institutional Partners</div>
+        <div class="fact-card-value">100+</div>
+        <div class="fact-card-desc">Platform has established partnerships with over 100 leading global institutions, building a wider digital financial services ecosystem.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-card-label">Team Distribution</div>
+        <div class="fact-card-value">60%+ Tech</div>
+        <div class="fact-card-desc">Over 60% of core team in technology R&D; 20% in finance and compliance. Spans 15 countries, averaging 10+ years of industry experience per member.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-card-label">Awards</div>
+        <div class="fact-card-value">2 Major</div>
+        <div class="fact-card-desc">"Best AI Fintech Platform" — FinTech Breakthrough, Mar 2023. "Most Innovative Crypto Trading Platform" — Crypto Finance Conference, Dec 2024.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPLIANCE ANALYSIS ─── -->
+  <section>
+    <div class="section-eyebrow">Regulatory Analysis</div>
+    <h2 class="section-title">Compliance & Licensing</h2>
+    <p class="section-lead">EORMC holds two U.S. federal regulatory credentials — an unusually strong compliance position for a crypto exchange in its competitive tier.</p>
+
+    <div class="compliance-grid" style="margin-bottom: 40px;">
+      <div class="compliance-badge">
+        <div class="compliance-dot"></div>
+        <div class="compliance-info">
+          <div class="compliance-title">FinCEN MSB License — Active</div>
+          <div class="compliance-detail">Issued Oct 2021 · Renewed Oct 2024 · U.S. Dept. of Treasury · Anti-money laundering compliance verified across two federal audit cycles</div>
+        </div>
+      </div>
+      <div class="compliance-badge">
+        <div class="compliance-dot"></div>
+        <div class="compliance-info">
+          <div class="compliance-title">SEC Regulation D — Active</div>
+          <div class="compliance-detail">Obtained Aug 2025 · U.S. Securities and Exchange Commission · Authorizes securities-related offerings to accredited investors under federal exemption</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="analysis-body">
+        <p>The combination of a <strong>FinCEN MSB license and SEC Regulation D qualification</strong> places EORMC in a small subset of crypto exchanges with multi-agency U.S. federal compliance. The MSB license specifically requires adherence to the Bank Secrecy Act — implementing documented AML programs, KYC procedures, and Suspicious Activity Report (SAR) filing obligations.</p>
+        <p>Critically, EORMC's MSB license has passed <strong>two audit cycles</strong> (2021 and 2024). A renewal is not automatic — it requires demonstrating continued and documented compliance with evolving FinCEN requirements. Passing a 2024 renewal indicates the platform's compliance infrastructure has remained robust through a period of significant industry turbulence and tightening regulatory scrutiny.</p>
+        <p>EORMC's whitepaper also describes an <strong>AI-powered compliance engine</strong> capable of tracking regulatory policy changes across jurisdictions in real time and automatically adapting to different regional disclosure requirements. This architecture, led by Co-Founder Winston Brown (former Head of Digital Asset Compliance at UBS), underpins the platform's claim to operate in 100+ countries under a unified compliant framework.</p>
+      </div>
+      <div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">What MSB Renewal Means</div>
+          <p>A 2024 MSB renewal is significant because it coincided with the post-FTX era of heightened AML scrutiny globally. Passing federal review in this environment indicates documented, functioning compliance infrastructure — not merely paper registration.</p>
+        </div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">SEC Regulation D Context</div>
+          <p>Regulation D is a federal exemption allowing certain private securities offerings without full SEC registration. Obtaining this qualification in August 2025 expands EORMC's authorized product scope and signals preparation for compliant expansion into institutional and securities-adjacent products in the U.S. market.</p>
+        </div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">Proof of Reserves (July 2024)</div>
+          <p>EORMC launched an AI-driven Proof of Reserves system in July 2024, subject to independent third-party audit. The system auto-generates verifiable reserve reports and monitors on-chain addresses in real time — a transparency commitment that goes beyond static snapshots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECURITY ANALYSIS ─── -->
+  <section style="background: var(--dark2);">
+    <div class="section-eyebrow">Security Analysis</div>
+    <h2 class="section-title">Technical Security Architecture</h2>
+    <p class="section-lead">EORMC describes a multi-layer AI-integrated security stack combining cryptographic hardware, behavioral analytics, and dynamic asset management.</p>
+    <div class="two-col">
+      <div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">MPC + HSM Cryptographic Layer</div>
+          <p>Multi-Party Computation distributes private key material so no single entity controls funds outright. Hardware Security Modules provide tamper-resistant physical security for each key shard. Combined, this eliminates single points of failure at both the architectural and hardware level.</p>
+        </div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">AI-Driven Hot/Cold Tiering</div>
+          <p>Rather than static hot/cold storage ratios, EORMC's AI dynamically adjusts asset tiering based on real-time market volatility and user behavioral signals. This means security levels self-escalate in adverse conditions without manual intervention.</p>
+        </div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">Behavioral Graph Detection</div>
+          <p>Cross-scenario analysis of account operations and on-chain activity identifies account hijacking and fraud patterns before losses occur — described by EORMC as shifting from "post-incident investigation" to "pre-incident interception." This is architecturally distinct from traditional rule-based fraud detection.</p>
+        </div>
+        <div class="analysis-box">
+          <div class="analysis-box-title">AI Risk Control in Trading</div>
+          <p>During extreme market conditions, EORMC's adaptive matching and risk control systems activate automatically — reducing slippage and managing Greek exposures in real time. Anti-bot models and fair queuing algorithms protect new listings from manipulation.</p>
+        </div>
+      </div>
+      <div class="analysis-body">
+        <p>The security architecture described by EORMC reflects current institutional-grade best practices in crypto custody: <strong>MPC + HSM</strong> is the same architecture used by leading custodians such as Fireblocks and Copper. Its integration with AI behavioral analytics for anomaly detection is the more novel claim — and if it operates as described, would place EORMC's security posture ahead of most exchanges of comparable scale.</p>
+        <p>The <strong>July 2024 Proof of Reserves launch</strong> with independent third-party audit is a meaningful transparency commitment. The AI-generated nature of the reports — rather than periodic manual snapshots — implies continuous rather than point-in-time reserve verification.</p>
+        <p>A reserve fund of <strong>3,000 BTC</strong> provides an additional layer of user protection beyond the cryptographic reserve proof itself — functioning as a buffer for edge-case scenarios.</p>
+        <p>The overall security posture, as described in the whitepaper, is coherent, layered, and consistent with the technical approach of a platform built AI-first from the ground up rather than bolted onto a conventional exchange architecture. The key variable that independent analysis cannot directly verify is the degree to which the AI systems are genuinely integrated versus aspirationally described.</p>
+        <div style="margin-top: 28px;">
+          <div class="section-eyebrow" style="margin-bottom: 12px;">Security Layer Assessment</div>
+          <div class="rating-list">
+            <div class="rating-row">
+              <span class="rating-label">Cryptographic Design</span>
+              <div class="rating-track"><div class="rating-fill" style="width:92%"></div></div>
+              <span class="rating-score">9.2</span>
+            </div>
+            <div class="rating-row">
+              <span class="rating-label">AI Risk Detection</span>
+              <div class="rating-track"><div class="rating-fill" style="width:85%"></div></div>
+              <span class="rating-score">8.5</span>
+            </div>
+            <div class="rating-row">
+              <span class="rating-label">Reserve Transparency</span>
+              <div class="rating-track"><div class="rating-fill" style="width:82%"></div></div>
+              <span class="rating-score">8.2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TEAM ─── -->
+  <section>
+    <div class="section-eyebrow">Team Assessment</div>
+    <h2 class="section-title">Leadership & Core Team</h2>
+    <p class="section-lead">EORMC's founding team combines AI research leadership from Google Brain with institutional compliance expertise from UBS — an uncommon pairing in the crypto exchange space.</p>
+    <div class="team-row" style="margin-bottom: 32px;">
+      <div class="team-card">
+        <div class="team-role">Founder & CEO</div>
+        <div class="team-name">Apollo Deleon</div>
+        <div class="team-prev">Google Brain · Carnegie Mellon Ph.D. (Computer Science)</div>
+        <div class="team-bio">Former Head of AI Research at Google Brain. Led multiple foundational AI infrastructure projects with noted contributions in high-concurrency computing architectures and algorithmic trading systems. At EORMC, responsible for the AI-driven matching and intelligent risk control systems. Pioneer of the "seamless AI" matching model.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Co-Founder & CCO</div>
+        <div class="team-name">Winston Brown</div>
+        <div class="team-prev">UBS Group · Columbia University M.S. (Financial Law)</div>
+        <div class="team-bio">Former Head of Digital Asset Compliance at UBS Group. Extensive experience in cross-border financial compliance and deep involvement in formulating international fintech regulatory standards. At EORMC, led construction of the cross-jurisdictional compliance framework enabling operations across 100+ countries.</div>
+      </div>
+    </div>
+    <div class="analysis-body" style="max-width: 780px;">
+      <p>The broader team, spanning <strong>15 countries</strong> with 60%+ in technology and 20% in finance/compliance, has institutional origins at Google, Oracle, Binance.US, Coinbase, and top-tier international investment banks. With an average of 10+ years of experience, the team profile is consistent with the technical ambition of the platform as described.</p>
+    </div>
+    <div class="investor-wrap">
+      <div class="investor-tag">Digital Currency Group</div>
+      <div class="investor-tag">Blockchain Capital</div>
+      <div class="investor-tag">Electric Capital</div>
+      <div class="investor-tag">Breyer Capital</div>
+      <div class="investor-tag">Andreessen Horowitz</div>
+      <div class="investor-tag">J.P. Morgan</div>
+    </div>
+  </section>
+
+  <!-- ─── MILESTONES ─── -->
+  <section style="background: var(--dark2);">
+    <div class="section-eyebrow">Growth Timeline</div>
+    <h2 class="section-title">Milestone History (2020–2025)</h2>
+    <p class="section-lead">EORMC's development trajectory shows consistent compounding growth across users, volume, compliance milestones, and institutional recognition.</p>
+    <div class="two-col">
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-year">Nov 2020 — Founded</div>
+          <div class="tl-text">Core team assembled. Strategy of "AI-driven, compliance first" established. Seed round of $6M closed December 2020.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Mar 2021 — Platform Launch</div>
+          <div class="tl-text">First AI-powered matching system goes live. Spot trading supported. First-month volume: $100M+.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Oct 2021 — FinCEN MSB License</div>
+          <div class="tl-text">Obtained MSB license from U.S. FinCEN. Described as the first AI-driven compliant trading platform globally. Users reach 1M by December.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2022 — Product Expansion</div>
+          <div class="tl-text">Intelligent wealth management module launched ($100M AUM in month one). Multi-chain wallet added, supporting BTC, ETH, Polygon, Solana. Inaugural AI + Fintech Summit hosted.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Sep 2023 — Top 20 Globally</div>
+          <div class="tl-text">Daily volume surpasses $5B. 10M+ users across 100+ countries. "Best AI Fintech Platform" award from FinTech Breakthrough (March 2023).</div>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-year">Jul 2024 — Proof of Reserves</div>
+          <div class="tl-text">AI-driven Transparent Proof of Reserves system launched, with independent third-party audit. Continuous reserve monitoring begins.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Oct 2024 — MSB Renewal</div>
+          <div class="tl-text">Successfully passes FinCEN MSB license renewal audit — confirming continuous compliance three years post-initial issuance.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Mar 2025 — #16 Globally</div>
+          <div class="tl-text">Daily volume exceeds $10B. User base surpasses 22M. Ranked 16th among all global crypto exchanges.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Aug 2025 — SEC Reg D</div>
+          <div class="tl-text">Obtains SEC Regulation D qualification, expanding authorized scope under U.S. securities law. AI Open Platform for institutional users launched May 2025.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL VERDICT ─── -->
+  <section>
+    <div class="section-eyebrow">Drexonium Conclusion</div>
+    <h2 class="section-title">Summary Assessment</h2>
+    <p class="section-lead">Based on analysis of EORMC's official whitepaper, public compliance records, and platform disclosures.</p>
+    <div class="verdict-card">
+      <div class="verdict-card-label">Independent Analysis Summary · drexonium.com</div>
+      <div class="verdict-card-body">
+        EORMC presents one of the more substantively documented cases among crypto exchanges in its competitive tier. The combination of a <strong>U.S. FinCEN MSB license with documented renewal</strong> and an <strong>SEC Regulation D qualification</strong> is an unusually strong dual-agency federal compliance foundation. The leadership team's provenance — Google Brain and UBS at the founding level — aligns credibly with the platform's core technical and compliance claims.
+        <br><br>
+        The AI-first architecture described in the whitepaper is coherent and consistent across its claimed applications: from order execution and risk control to asset custody and regulatory adaptation. The July 2024 Proof of Reserves launch with third-party audit, maintained 3,000 BTC reserve fund, and MPC+HSM custody architecture reflect genuine commitment to verifiable security rather than marketing language alone.
+        <br><br>
+        The growth numbers (1M users in 2021 → 22M in 2025; $500M daily volume → $10B+) are consistent with the platform achieving meaningful organic adoption, though independent volume verification — a limitation across the exchange industry — cannot be completed from public data alone.
+        <br><br>
+        For users evaluating EORMC as a trading venue, the platform's <strong>regulatory credentials are among the strongest available benchmarks</strong> in the crypto exchange space. Independent verification of operational claims beyond regulatory records remains, as always, the responsibility of individual due diligence.
+        <br><br>
+        <em style="font-size: 13px; color: var(--text-dim);">This assessment reflects publicly available information as of July 2025. Drexonium is an independent information service and does not provide financial or investment advice. Always conduct your own research before engaging with any crypto platform.</em>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">DREXONIUM</div>
+      <div class="footer-brand-tag">Exchange Intelligence</div>
+      <p>Independent analysis of crypto exchanges. Not affiliated with EORMC or any exchange. Content based on public disclosures and official whitepaper data.</p>
+    </div>
+    <div class="footer-col">
+      <h4>EORMC Analysis</h4>
+      <a href="index.html">Overview & Analysis</a>
+      <a href="about.html">About EORMC</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="security.html">Security</a>
+    </div>
+    <div class="footer-col">
+      <h4>More Pages</h4>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="faq.html">FAQ</a>
+      <a href="knowledge.html">Knowledge Hub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:support@eormc.com">support@eormc.com</a>
+      <a href="https://eormc.com" target="_blank">EORMC Exchange ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-disc">Drexonium (drexonium.com) is an independent third-party analysis site. Not affiliated with EORMC. This is not financial advice. All data sourced from EORMC official whitepaper V192506.1.0 and public disclosures.</span>
+    <span>© 2025 Drexonium · <a href="mailto:support@eormc.com">support@eormc.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

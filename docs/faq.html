@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EORMC FAQ — Common Questions Answered | Drexonium</title>
+  <meta name="description" content="Independent answers to frequently asked questions about EORMC — compliance, security, products, team, and how to get started.">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --gold: #C9A227;
+  --gold-light: #F0C040;
+  --gold-dark: #8B6914;
+  --gold-glow: rgba(201,162,39,0.3);
+  --black: #050608;
+  --dark: #0A0B0F;
+  --dark2: #10121A;
+  --dark3: #161824;
+  --border: rgba(201,162,39,0.2);
+  --border-bright: rgba(201,162,39,0.5);
+  --text: #E8E4D0;
+  --text-dim: #9A9480;
+  --text-bright: #F5F0E0;
+  --green: #4ade80;
+  --green-dim: rgba(74,222,128,0.08);
+  --green-border: rgba(74,222,128,0.25);
+  --blue: #60a5fa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(201,162,39,0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(201,162,39,0.03) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(5,6,8,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-brand-name { font-family: 'Orbitron', monospace; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; }
+.nav-brand-tag { font-size: 10px; color: var(--text-dim); letter-spacing: 1px; border-left: 1px solid var(--border); padding-left: 10px; margin-left: 2px; font-family: 'Inter', sans-serif; }
+.nav-links { display: flex; align-items: center; list-style: none; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; transition: color 0.2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-ext { font-size: 11px; color: var(--text-dim); border: 1px solid var(--border); padding: 5px 14px; border-radius: 2px; text-decoration: none; font-family: 'Orbitron', monospace; letter-spacing: 1px; transition: all 0.2s; }
+.nav-ext:hover { color: var(--gold-light); border-color: var(--border-bright); }
+/* MAIN */
+main { position: relative; z-index: 1; padding-top: 64px; }
+/* HERO */
+.hero { min-height: 360px; display: flex; align-items: center; padding: 80px 80px 64px; position: relative; border-bottom: 1px solid var(--border); overflow: hidden; }
+.hero::after { content: ''; position: absolute; top: -160px; right: -160px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(201,162,39,0.06) 0%, transparent 70%); pointer-events: none; }
+.hero-kicker { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,162,39,0.06); border: 1px solid var(--border); padding: 5px 14px; border-radius: 2px; margin-bottom: 24px; }
+.hero-kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.hero-kicker span { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.hero h1 { font-family: 'Orbitron', monospace; font-size: clamp(26px, 4vw, 52px); font-weight: 900; line-height: 1.08; color: var(--text-bright); margin-bottom: 16px; }
+.hero h1 .accent { color: var(--gold); }
+.hero p { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dim); max-width: 560px; line-height: 1.85; }
+/* SECTIONS */
+section { padding: 72px 80px; position: relative; z-index: 1; }
+section + section { border-top: 1px solid var(--border); }
+.section-eyebrow { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 8px; }
+.section-title { font-family: 'Orbitron', monospace; font-size: clamp(18px, 2.5vw, 30px); font-weight: 700; color: var(--text-bright); line-height: 1.2; margin-bottom: 14px; }
+.section-lead { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dim); max-width: 640px; line-height: 1.8; margin-bottom: 44px; }
+/* TWO COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+/* ANALYSIS */
+.analysis-body { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dim); line-height: 1.85; }
+.analysis-body p { margin-bottom: 18px; }
+.analysis-body strong { color: var(--text); font-weight: 500; }
+.analysis-box { border: 1px solid var(--border); background: var(--dark2); padding: 24px 28px; margin-bottom: 16px; border-radius: 2px; }
+.analysis-box-title { font-family: 'Orbitron', monospace; font-size: 12px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.5px; margin-bottom: 10px; }
+.analysis-box p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.75; }
+/* HIGHLIGHT BOX */
+.highlight-box { border: 1px solid var(--border-bright); background: rgba(201,162,39,0.04); border-radius: 2px; padding: 28px 32px; margin-bottom: 20px; }
+.highlight-box h3 { font-family: 'Orbitron', monospace; font-size: 13px; color: var(--gold-light); margin-bottom: 10px; }
+.highlight-box p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.75; }
+/* CARDS */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.card { background: var(--dark2); padding: 32px 28px; transition: background 0.2s; }
+.card:hover { background: var(--dark3); }
+.card-icon { width: 40px; height: 40px; border: 1px solid var(--gold-dark); border-radius: 2px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--gold); font-size: 18px; }
+.card h3 { font-family: 'Orbitron', monospace; font-size: 13px; font-weight: 700; color: var(--text-bright); margin-bottom: 10px; }
+.card p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+/* STATS */
+.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 56px; }
+.stat-block { background: var(--dark); padding: 24px 20px; text-align: center; }
+.stat-num { font-family: 'Orbitron', monospace; font-size: clamp(20px, 2.5vw, 30px); font-weight: 900; color: var(--gold); display: block; margin-bottom: 5px; }
+.stat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+/* BADGE */
+.badge-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+.badge { display: flex; align-items: center; gap: 10px; background: var(--green-dim); border: 1px solid var(--green-border); padding: 10px 18px; border-radius: 2px; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1px; color: var(--green); }
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 2.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+/* TIMELINE */
+.tl { position: relative; padding-left: 28px; }
+.tl::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold-dark), transparent); }
+.tl-item { position: relative; margin-bottom: 32px; padding-left: 20px; }
+.tl-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); border: 2px solid var(--black); box-shadow: 0 0 8px var(--gold-glow); }
+.tl-year { font-family: 'Orbitron', monospace; font-size: 10px; letter-spacing: 2.5px; color: var(--gold); margin-bottom: 6px; }
+.tl-text { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+/* PHASE CARDS */
+.phase-card { border: 1px solid var(--border); background: var(--dark2); border-radius: 2px; overflow: hidden; margin-bottom: 20px; transition: border-color 0.2s; }
+.phase-card:hover { border-color: var(--border-bright); }
+.phase-header { background: rgba(201,162,39,0.05); border-bottom: 1px solid var(--border); padding: 22px 30px; display: flex; align-items: center; justify-content: space-between; }
+.phase-name { font-family: 'Orbitron', monospace; font-size: 17px; font-weight: 900; color: var(--gold); }
+.phase-sub { font-size: 13px; color: var(--text-dim); font-family: 'Inter', sans-serif; margin-top: 4px; }
+.phase-tag { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; color: var(--text-dim); border: 1px solid var(--border); padding: 4px 10px; text-transform: uppercase; }
+.phase-body { padding: 24px 30px; }
+.phase-body ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.phase-body li { display: flex; gap: 12px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+.phase-body li::before { content: '◎'; color: var(--gold-dark); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 16px; color: var(--text-bright); transition: color 0.2s; user-select: none; }
+.faq-q:hover { color: var(--gold-light); }
+.faq-q span { font-family: 'Orbitron', monospace; font-size: 14px; color: var(--gold); transition: transform 0.3s; }
+.faq-q.open span { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s; }
+.faq-a.open { max-height: 500px; padding-bottom: 22px; }
+.faq-a p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.8; padding-right: 40px; }
+/* DISCLAIMER BAR */
+.disclaimer-bar { display: flex; align-items: flex-start; gap: 12px; background: rgba(96,165,250,0.05); border: 1px solid rgba(96,165,250,0.18); padding: 14px 20px; border-radius: 2px; margin-bottom: 32px; }
+.disclaimer-bar p { font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(96,165,250,0.75); line-height: 1.6; }
+/* RATING */
+.rating-list { display: flex; flex-direction: column; gap: 14px; }
+.rating-row { display: flex; align-items: center; gap: 14px; }
+.rating-label { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); min-width: 160px; }
+.rating-track { flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+.rating-fill { height: 100%; background: linear-gradient(to right, var(--gold-dark), var(--gold-light)); border-radius: 2px; }
+.rating-score { font-family: 'Orbitron', monospace; font-size: 12px; color: var(--gold); min-width: 36px; text-align: right; }
+/* TABLE */
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th { font-family: 'Orbitron', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 12px 18px; text-align: left; border-bottom: 1px solid var(--border-bright); background: rgba(201,162,39,0.04); }
+.data-table td { padding: 14px 18px; border-bottom: 1px solid var(--border); color: var(--text-dim); font-family: 'Inter', sans-serif; }
+.data-table tr:hover td { background: rgba(201,162,39,0.02); }
+/* FOOTER */
+footer { position: relative; z-index: 1; background: var(--dark2); border-top: 1px solid var(--border); padding: 56px 80px 32px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand-name { font-family: 'Orbitron', monospace; font-size: 15px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; margin-bottom: 6px; }
+.footer-brand-tag { font-size: 10px; color: var(--gold); letter-spacing: 1px; font-family: 'Orbitron', monospace; opacity: 0.7; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: var(--text-dim); line-height: 1.7; max-width: 280px; font-family: 'Inter', sans-serif; }
+.footer-col h4 { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; opacity: 0.7; }
+.footer-col a { display: block; color: var(--text-dim); text-decoration: none; font-size: 14px; margin-bottom: 8px; font-weight: 500; font-family: 'Rajdhani', sans-serif; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-start; font-size: 12px; color: var(--text-dim); font-family: 'Inter', sans-serif; line-height: 1.6; gap: 40px; }
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+.footer-disc { max-width: 500px; color: rgba(154,148,128,0.6); }
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero, section { padding: 56px 24px; }
+  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  footer { padding: 40px 24px 24px; }
+  .footer-bottom { flex-direction: column; }
+}
+
+.faq-section { margin-bottom:52px; }
+.faq-cat-label { font-family:'Orbitron',monospace; font-size:9px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:4px; opacity:0.7; }
+.faq-cat-title { font-family:'Orbitron',monospace; font-size:18px; font-weight:700; color:var(--text-bright); margin-bottom:24px; padding-bottom:14px; border-bottom:1px solid var(--border-bright); }
+.contact-box { background:linear-gradient(135deg,rgba(201,162,39,0.06) 0%,var(--dark2) 100%); border:1px solid var(--border-bright); padding:44px; text-align:center; border-radius:2px; }
+.contact-box h2 { font-family:'Orbitron',monospace; font-size:20px; color:var(--text-bright); margin-bottom:10px; }
+.contact-box p { font-family:'Inter',sans-serif; font-size:15px; color:var(--text-dim); margin-bottom:22px; }
+.contact-email { display:inline-flex; align-items:center; gap:10px; background:rgba(201,162,39,0.08); border:1px solid var(--border-bright); color:var(--gold-light); text-decoration:none; padding:13px 26px; font-family:'Orbitron',monospace; font-size:13px; letter-spacing:1px; border-radius:2px; transition:all 0.2s; }
+.contact-email:hover { background:rgba(201,162,39,0.14); border-color:var(--gold); }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">DREXONIUM</span>
+    <span class="nav-brand-tag">Exchange Intelligence</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Analysis</a></li>
+    <li><a href="about.html">About EORMC</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="knowledge.html">Knowledge</a></li>
+    <li><a href="https://eormc.com" target="_blank" class="nav-ext">Visit Exchange ↗</a></li>
+  </ul>
+</nav>
+<main>
+  <div class="hero">
+    <div>
+      <div class="hero-kicker"><div class="hero-kicker-dot"></div><span>drexonium.com · FAQ</span></div>
+      <h1>Frequently Asked<br><span class="accent">Questions</span></h1>
+      <p>Answers to common questions about EORMC — compiled by Drexonium based on the platform's official whitepaper and public disclosures. For direct support from EORMC, contact support@eormc.com.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="disclaimer-bar">
+      <p>ℹ Drexonium is an independent third-party analysis site. The answers below are based on EORMC's official whitepaper (V192506.1.0) and public disclosures, not direct communication with EORMC. For authoritative answers, contact EORMC directly at <a href="mailto:support@eormc.com" style="color:#60a5fa;">support@eormc.com</a> or visit <a href="https://eormc.com" style="color:#60a5fa;">eormc.com</a>.</p>
+    </div>
+
+    <div style="max-width:820px;">
+
+      <div class="faq-section">
+        <div class="faq-cat-label">General</div>
+        <div class="faq-cat-title">About EORMC</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is EORMC and when was it founded?<span>+</span></div>
+          <div class="faq-a"><p>EORMC is a global crypto trading infrastructure provider founded in November 2020. The platform operates under the stated philosophy of "AI reshapes trading, compliance safeguards value" — integrating artificial intelligence across trading execution, risk management, asset custody, and regulatory compliance. As of 2025, it reports 22M+ users globally and $10B+ in daily trading volume, ranking 16th among crypto exchanges.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is the difference between drexonium.com and eormc.com?<span>+</span></div>
+          <div class="faq-a"><p>eormc.com is EORMC's official trading platform where users can create accounts, trade, and access all products. drexonium.com (this site) is an independent third-party analysis portal — not affiliated with EORMC. Drexonium provides research and analysis about EORMC based on the platform's public whitepaper and disclosures. This site does not provide trading services or represent EORMC in any capacity.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What products does EORMC offer?<span>+</span></div>
+          <div class="faq-a"><p>According to its whitepaper, EORMC offers spot trading, derivatives trading, asset subscription services, intelligent wealth management, and a multi-chain wallet supporting BTC, ETH, Polygon, Solana, and other major blockchain ecosystems. An institutional AI Open Platform launched in May 2025, providing investment advisory, API access, and one-stop solutions for institutional clients.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Who are EORMC's key people?<span>+</span></div>
+          <div class="faq-a"><p>EORMC's whitepaper identifies two key founders: Apollo Deleon (Founder & CEO), who holds a Ph.D. in Computer Science from Carnegie Mellon University and formerly served as Head of AI Research at Google Brain; and Winston Brown (Co-Founder & CCO), who holds an M.S. in Financial Law from Columbia University and formerly served as Head of Digital Asset Compliance at UBS Group. The broader team spans 15 countries with backgrounds at Google, Oracle, Coinbase, and Binance.US.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <div class="faq-cat-label">Regulatory</div>
+        <div class="faq-cat-title">Compliance & Licensing</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What licenses does EORMC hold?<span>+</span></div>
+          <div class="faq-a"><p>EORMC reports holding two U.S. federal regulatory credentials: (1) An MSB (Money Services Business) license from FinCEN under the U.S. Department of the Treasury, first issued October 2021 and renewed October 2024. (2) A Regulation D qualification from the U.S. SEC, obtained August 2025. This dual-agency federal compliance position is relatively uncommon among crypto exchanges of comparable scale.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Why does the MSB renewal matter?<span>+</span></div>
+          <div class="faq-a"><p>MSB renewal is not automatic — it requires passing a federal audit demonstrating documented, functioning compliance infrastructure. EORMC's October 2024 renewal occurred during a period of heightened regulatory scrutiny following the FTX collapse, making the renewal a more meaningful signal than initial registration alone. Passing two audit cycles (2021 and 2024) indicates continuous rather than point-in-time compliance.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is EORMC available in my country?<span>+</span></div>
+          <div class="faq-a"><p>EORMC's whitepaper states it operates in 100+ countries and regions. The platform's AI compliance engine is described as tracking regulatory changes across jurisdictions in real time. For specific country availability and any applicable restrictions, contact EORMC directly at support@eormc.com or check the current status at eormc.com.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <div class="faq-cat-label">Safety</div>
+        <div class="faq-cat-title">Security & Asset Protection</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How does EORMC protect user assets?<span>+</span></div>
+          <div class="faq-a"><p>EORMC's whitepaper describes a multi-layer architecture combining MPC (Multi-Party Computation) and HSM (Hardware Security Module) cryptographic technology — the same approach used by institutional custodians. AI dynamically adjusts hot/cold storage tiering based on market conditions and user behavior. Behavioral graph algorithms monitor account activity to detect and intercept threats pre-emptively. A 3,000 BTC reserve fund and an AI-driven Proof of Reserves system (launched July 2024) provide additional protection layers.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is EORMC's Proof of Reserves system?<span>+</span></div>
+          <div class="faq-a"><p>Launched in July 2024, EORMC's Proof of Reserves system automatically generates verifiable asset reserve reports and monitors on-chain addresses in real time — rather than providing periodic manual snapshots. The system is subject to independent third-party audit, and EORMC maintains 3,000 BTC in reserve funds as a financial buffer complementing the cryptographic verification.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <div class="faq-cat-label">Getting Started</div>
+        <div class="faq-cat-title">Using EORMC</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do I start trading on EORMC?<span>+</span></div>
+          <div class="faq-a"><p>To create an account and trade on EORMC, visit the official platform at eormc.com. This site (drexonium.com) is an independent analysis portal and does not provide direct access to trading services. For account creation, KYC verification, and trading support, go directly to eormc.com.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How can I contact EORMC?<span>+</span></div>
+          <div class="faq-a"><p>For direct support from EORMC, contact support@eormc.com. EORMC describes 24/7 multilingual support. For questions about the analysis on this site (drexonium.com), you can also reach us at support@eormc.com. For trading account matters, the EORMC Help Center at eormc.com is the appropriate channel.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Does EORMC serve institutional clients?<span>+</span></div>
+          <div class="faq-a"><p>Yes. In May 2025, EORMC launched its AI Open Platform specifically for institutional users, providing intelligent investment advisory, API access, and one-stop solutions. EORMC reports partnerships with 100+ leading global institutions. For institutional inquiries, contact EORMC directly at support@eormc.com.</p></div>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <h2>Questions Not Covered Here?</h2>
+        <p>For direct answers from EORMC's support team, available 24/7 in multiple languages.</p>
+        <a href="mailto:support@eormc.com" class="contact-email">✉ support@eormc.com</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">DREXONIUM</div>
+      <div class="footer-brand-tag">Exchange Intelligence</div>
+      <p>Independent analysis of crypto exchanges. Not affiliated with EORMC or any exchange. Content based on public disclosures and the EORMC official whitepaper.</p>
+    </div>
+    <div class="footer-col">
+      <h4>EORMC Analysis</h4>
+      <a href="index.html">Overview & Analysis</a>
+      <a href="about.html">About EORMC</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="security.html">Security</a>
+    </div>
+    <div class="footer-col">
+      <h4>More Pages</h4>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="faq.html">FAQ</a>
+      <a href="knowledge.html">Knowledge Hub</a>
+      <a href="https://eormc.com" target="_blank">EORMC Exchange ↗</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:support@eormc.com">support@eormc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-disc">Drexonium (drexonium.com) is an independent third-party analysis site. Not affiliated with EORMC. This is not financial advice. All data sourced from EORMC official whitepaper V192506.1.0 and public disclosures.</span>
+    <span>© 2025 Drexonium · <a href="mailto:support@eormc.com">support@eormc.com</a></span>
+  </div>
+</footer>
+<script>
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) { el.classList.add('open'); answer.classList.add('open'); }
+}
+</script>
+</body>
+</html>
